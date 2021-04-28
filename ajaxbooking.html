@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html>
+<head >
+    <style type="text/css">
+    body{
+    margin: 0;
+    padding: 0;
+    background: url(booking.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+.Booking{
+
+ width: 340px;
+height: 550px;
+background: #C48189;
+color: #fff;
+top: 50%;
+left: 50%;
+position: absolute;
+transform: translate(-50%,-50%);
+box-sizing: border-box;
+padding: 70px 30px;
+
+}
+h2{
+margin:0;
+padding: 5px;
+text-align: center;
+font-size: 22px;
+font-family: cooper black;
+color: #FFF5EE;
+text-shadow: 2px 1px 2px #8C001A;
+
+}
+h5{
+color: #9F000F;
+ margin:0;
+padding: 0;
+font-weight: bold;
+
+}
+
+.Booking p{
+color: black;
+ margin:0;
+padding: 0;
+font-weight: bold;
+}
+
+.Booking input{
+
+ width: 100%;
+margin-bottom:15px;
+}
+
+.Booking input[type="text"]{
+
+ border:none;
+border-bottom: 1px solid #fff;
+background: transparent;
+outline: none;
+height: 40px;
+color: #9F000F;
+font-size: 16px;
+}
+.Booking input[type="submit"]{
+
+ border:none;
+background: #A0CFEC;
+outline: none;
+height: 40px;
+color: #fff;
+font-size: 18px;
+border-radius: 20px;
+}
+.Booking input[type="submit"]:hover{
+
+ cursor: pointer;
+background: #438D80;
+color: #000;
+}
+
+.Booking a{
+
+ text-decoration: none;
+font-size: 12px;
+line-height: 20px;
+color: #438D80;
+}
+.Booking a:hover{
+
+color: #A0CFEC;
+}
+</style>
+<title>Book Room</title>
+
+<body>
+
+<div class="Booking">
+<center>
+<h2 style="color: black;"><b></b> </h2>
+<h2 font-size: 22px;
+font-family: cooper black;
+color: #FFF5EE; text-shadow: 2px 1px 2px #8C001A;>Any Type Of Room Is Available For You</h2>
+
+
+<p>UserName:</p>
+<label for="username"></label>
+<input type="text" name="username" id="username" >
+
+<br>
+
+<p>Date of Booking:</p>
+<label for="BookingDate"></label>
+<input type="Date" id="BookingDate" name="BookingDate">
+<p>Date of leaving:</p>
+<label for="LeavingDate"></label>
+<input type="Date" id="LeavingDate" name="LeavingDate">
+<br>
+
+<select name="BedType">
+    <option selected disabled >Select Bed Type:</option>
+    <option value="Single">Single</option>
+    <option value="Double">Double</option>
+    
+   
+    </select>
+    <h2><p id="p1"></p></h2>
+
+    <br><br>
+<button id="submit" onclick="submit()">Submit</button>
+
+
+ </div>
+</font>
+</head>
+</center>
+
+<script>
+        function submit() {
+  var username = document.getElementById("username").value;
+ var BookingDate = document.getElementById("BookingDate").value;
+var LeavingDate = document.getElementById("LeavingDate").value;
+var BedType = document.getElementById("BedType").value;
+
+            if(username == "" || BookingDate == "" || LeavingDate == "" || BedType == "" ) {
+                document.getElementById("p1").innerHTML = "<b> Please fill up the booking form properly";
+                document.getElementById("p1").style.color = "red";
+            }
+            else {
+
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200) {
+                        document.getElementById("p1").innerHTML = xhttp.responseText;
+                        document.getElementById("p1").style.color = "green";
+                    }
+                }
+
+                xhttp.open("POST", "ajaxbooking1.php", true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send("username="+username+"&BookingDate="+BookingDate+"&LeavingDate="+LeavingDate+"&BedType="+BedType);
+            }
+            
+        }
+    </script>
+</body>
+</html>

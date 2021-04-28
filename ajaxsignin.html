@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>profile</title>
+</head>
+<body style="height: 100vh;background-size: cover; background-image:url(sign1.jpg);"  >
+<center>
+<h1 style="text-align:centre;">Create Your Account</h1>
+</center>
+
+<font color="black">
+
+ <fieldset >
+
+<b>
+ <center>
+
+<br>
+<br>
+<label for="fname">First Name:</label>
+<input type="text" name="fname" id="fname" >
+
+
+<br>
+<br>
+
+<label for="lname">Last Name:</label>
+<input type="text" name="lname" id="lname">
+
+<br>
+<br>
+
+<label for="dob">Date of Birth: </label>
+<input type="date" id="dob" name="dob"
+>
+
+
+ <br>
+ <br>
+
+
+ 
+
+<label for="add">Address: </label>
+<input type="text" name="add" id="add" >
+
+<br>
+<br>
+
+
+<label for="phone">Phone number: </label>
+<input type="tel" id="phone" name="phone"  >
+<br>
+<br>
+
+ 
+<label for="email">Email: </label>
+<input type="email" id="email" name="email">
+
+<br>
+<br>
+
+<label for="username">User Name:</label>
+<input type="text" name="username" id="username" >
+<br>
+<br>
+
+
+
+<label for="password">Password:</label>
+<input type="password" name="password" id="password" >
+
+<br>
+<br>
+
+
+<label for="confirmPass">Confirm Password:</label>
+<input type="password" name="confirmPass" id="confirmPass" >
+
+<br>
+<br>
+</center>
+
+ </fieldset></b>
+<center>
+<button style="color: blue; size: 1500px" id="submit" onclick="submit()">Submit</button>
+
+    <p id="p1"></p>
+
+</font>
+
+</center>
+
+<script>
+        function submit() {
+         
+            
+            var fname = document.getElementById("fname").value;
+            var lname = document.getElementById("lname").value;
+            var dob = document.getElementById("dob").value;
+            var add = document.getElementById("add").value;
+            var phone = document.getElementById("phone").value;
+            var email = document.getElementById("email").value;
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var confirmPass = document.getElementById("confirmPass").value;
+
+            if(fname == "" || lname == "" || dob == "" || add == "" || phone == "" || email == "" || username == "" || password == "" || confirmPass == "") {
+                document.getElementById("p1").innerHTML = "<b>Please fill up the form properly to create your account";
+                document.getElementById("p1").style.color = "#8C001A";
+            }
+          else {
+
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200) {
+                        document.getElementById("p1").innerHTML = xhttp.responseText;
+                        document.getElementById("p1").style.color = "green";
+                    }
+                }
+
+                xhttp.open("POST", "ajaxsignin.php", true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send("fname="+fname+"&lname="+lname+"&dob="+dob+"&add="+add+"&phone="+phone+"&email="+email+"&username="+username+"&password="+password+"&confirmPass="+confirmPass);
+            }
+        }
+
+        
+
+    </script>
+</center>
+
+</body>
+</html>

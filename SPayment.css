@@ -1,0 +1,102 @@
+body{
+	margin: 0;
+	padding: 0;
+	background: url(payment.jpg);
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
+}
+
+.Payment{
+
+width: 340px;
+height: 550px;
+background: #4C787E;
+color: #fff;
+top: 50%;
+left: 50%;
+position: absolute;
+transform: translate(-50%,-50%);
+box-sizing: border-box;
+padding: 70px 30px;
+
+}
+h1{
+margin:0;
+padding: 0 0 20px;
+text-align: center;
+font-family: cooper black;
+font-size: 26px;
+color: #FFF5EE;
+
+
+}
+h4{
+margin:0;
+padding: 5px;
+text-align: center;
+font-size: 15px;
+font-family: cooper black;
+color: #FFF5EE;
+text-shadow: 2px 1px 2px navy;
+
+}
+h5{
+color: #9F000F;
+ margin:0;
+padding: 0;
+font-weight: bold;
+
+}
+
+.Payment p{
+color: black;
+ margin:0;
+padding: 0;
+font-weight: bold;
+}
+
+.Payment input{
+
+ width: 100%;
+margin-bottom: 20px;
+}
+
+.Payment input[type="text"]{
+
+ border:none;
+border-bottom: 1px solid #fff;
+background: transparent;
+outline: none;
+height: 40px;
+color: #9F000F;
+font-size: 16px;
+}
+.Payment input[type="submit"]{
+
+ border:none;
+background: #786D5F;
+outline: none;
+height: 40px;
+color: #fff;
+font-size: 15px;
+border-radius: 15px;
+}
+.Payment input[type="submit"]:hover{
+
+ cursor: pointer;
+background: #C6AEC7;
+color: #000;
+}
+
+.Payment a{
+
+ text-decoration: none;
+font-size: 10px;
+line-height: 15px;
+color: #C6AEC7;
+}
+.Payment a:hover{
+
+color: #786D5F;
+}
